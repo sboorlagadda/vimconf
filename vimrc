@@ -27,24 +27,31 @@ Plug 'vim-syntastic/syntastic'
 Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'wellle/targets.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-
+Plug 'crusoexia/vim-monokai'
 call plug#end()
 " :PlugInstall to install
-
-"python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'Scripts/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
 
 syntax on
 filetype plugin indent on
 
-colorscheme desert
+colorscheme monokai
+set t_Co=256
+
+" Spelling
+highlight clear SpellBad
+highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
+highlight clear SpellCap
+highlight SpellCap term=underline cterm=underline
+highlight clear SpellRare
+highlight SpellRare term=underline cterm=underline
+highlight clear SpellLocal
+highlight SpellLocal term=underline cterm=underline
+
+" where it should get the dictionary files
+let g:spellfile_URL = 'http://ftp.vim.org/vim/runtime/spell'
+
+" Set title of window to file name
+set title
 
 " Basic stuff --------------------------------------------------------------
 "
