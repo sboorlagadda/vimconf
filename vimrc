@@ -28,6 +28,7 @@ Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'wellle/targets.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'crusoexia/vim-monokai'
+Plug 'fatih/vim-go'
 call plug#end()
 " :PlugInstall to install
 
@@ -160,3 +161,28 @@ highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
+
+
+" golang custom settings
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t <Plug>(go-test)
+autocmd FileType go nmap <leader>c <Plug>(go-coverage)
+autocmd FileType go nmap <leader>ds <Plug>(go-def-split)
+autocmd FileType go nmap <leader>dv <Plug>(go-def-vertical)
+autocmd FileType go nmap <leader>dt <Plug>(go-def-tab)
+autocmd FileType go nmap <leader>gd <Plug>(go-doc)
+autocmd FileType go nmap <leader>gv <Plug>(go-doc-vertical)
+autocmd FileType go nmap <leader>s <Plug>(go-implements)
+autocmd FileType go nmap <leader>i <Plug>(go-info)
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+" golang custom settings
